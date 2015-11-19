@@ -39,7 +39,7 @@ public class MeteorReceiver extends BroadcastReceiver {
         String uuid = ScreenshotBitmapCache.putBitmap(b);
         ComponentName componentName = intent.getParcelableExtra(component_name);
         Intent i = new Intent();
-        i.putExtra(Meteoroid.Screenshot_key, uuid);
+        i.putExtra(Meteor.Screenshot_key, uuid);
         i.setComponent(componentName);
         i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         context.startActivity(i);

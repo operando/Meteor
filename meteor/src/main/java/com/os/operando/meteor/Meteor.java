@@ -4,7 +4,7 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.support.annotation.Nullable;
 
-public class Meteoroid {
+public class Meteor {
 
     public static final String Screenshot_key = "screenshot_key";
 
