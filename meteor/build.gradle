@@ -45,7 +45,7 @@ dependencies {
 }
 
 group = 'com.os.operando.meteor'
-version = '0.1.0'
+version = '0.1.1'
 
 def siteUrl = 'https://github.com/operando/Meteor'
 def gitUrl = 'https://github.com/operando/Meteor.git'
@@ -57,6 +57,7 @@ bintray {
     pkg {
         repo = 'maven'
         name = 'meteor'
+        websiteUrl = siteUrl
         vcsUrl = gitUrl
         desc = 'This library provides the ability to take a screenshot of your app from the notification.'
         issueTrackerUrl = 'https://github.com/operando/Meteor/issues'
