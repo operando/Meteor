@@ -14,7 +14,12 @@ public class MeteorNotification {
     private static final int NOTIFICATION_ID = 100;
 
     public static void show(Context context, ComponentName componentName) {
-        PendingIntent pendingIntent = MeteorReceiver.createPendingIntent(context, 0, PendingIntent.FLAG_CANCEL_CURRENT, componentName);
+        show(context, componentName, ComponentType.Activity);
+    }
+
+    public static void show(Context context, ComponentName componentName, ComponentType componentType) {
+        PendingIntent pendingIntent = MeteorReceiver.createPendingIntent(context, 0,
+                PendingIntent.FLAG_CANCEL_CURRENT, componentName, componentType);
         Notification notification = buildNotification(context, pendingIntent);
         NotificationManager notificationManager = getNotificationManager(context);
         notificationManager.notify(NOTIFICATION_TAG, NOTIFICATION_ID, notification);

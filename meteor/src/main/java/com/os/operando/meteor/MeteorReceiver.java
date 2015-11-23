@@ -13,14 +13,17 @@ import android.view.Window;
 public class MeteorReceiver extends BroadcastReceiver {
 
     private static final String component_name = "component_name";
+    private static final String component_type = "component_type";
 
     public static Intent createIntent(Context context) {
         return new Intent(context, MeteorReceiver.class);
     }
 
-    public static PendingIntent createPendingIntent(Context context, int requestCode, int flags, @NonNull ComponentName componentName) {
+    public static PendingIntent createPendingIntent(Context context, int requestCode, int flags,
+                                                    @NonNull ComponentName componentName, ComponentType componentType) {
         Intent intent = createIntent(context);
         intent.putExtra(component_name, componentName);
+        intent.putExtra(component_type, componentType);
         return PendingIntent.getBroadcast(context, requestCode, intent, flags);
     }
 
@@ -42,6 +45,16 @@ public class MeteorReceiver extends BroadcastReceiver {
         i.putExtra(Meteor.Screenshot_key, uuid);
         i.setComponent(componentName);
         i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        context.startActivity(i);
+        switch (((ComponentType) intent.getSerializableExtra(component_type))) {
+            case Activity:
+                context.startActivity(i);
+                break;
+            case Service:
+                context.startService(i);
+                break;
+            case BroadcastReceiver:
+                context.sendBroadcast(i);
+                break;
+        }
     }
 }
