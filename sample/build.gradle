@@ -5,7 +5,7 @@ android {
     buildToolsVersion "23.0.2"
 
     defaultConfig {
-        applicationId "com.os.operando.meteor"
+        applicationId "com.os.operando.meteor.sample"
         minSdkVersion 14
         targetSdkVersion 23
         versionCode 1
@@ -21,6 +21,6 @@ android {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:23.1.1'
+    compile 'com.os.operando.meteor:meteor:0.1.0'
 }

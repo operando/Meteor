@@ -1,1 +1,1 @@
-include ':app', ':meteor'
+include ':sample', ':meteor'
