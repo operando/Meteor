@@ -13,10 +13,6 @@ public class MeteorNotification {
     private static final String NOTIFICATION_TAG = MeteorNotification.class.getName();
     private static final int NOTIFICATION_ID = 100;
 
-    public static void show(Context context, ComponentName componentName) {
-        show(context, componentName, ComponentType.Activity);
-    }
-
     public static void show(Context context, ComponentName componentName, ComponentType componentType) {
         PendingIntent pendingIntent = MeteorReceiver.createPendingIntent(context, 0,
                 PendingIntent.FLAG_CANCEL_CURRENT, componentName, componentType);
