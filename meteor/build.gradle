@@ -44,7 +44,7 @@ dependencies {
 }
 
 group = 'com.os.operando.meteor'
-version = '0.1.1'
+version = '0.1.2'
 
 def siteUrl = 'https://github.com/operando/Meteor'
 def gitUrl = 'https://github.com/operando/Meteor.git'
