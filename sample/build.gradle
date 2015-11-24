@@ -23,5 +23,6 @@ dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.android.support:appcompat-v7:23.1.1'
 //    compile 'com.os.operando.meteor:meteor:0.1.0'
+    compile 'com.os.operando.meteoroid:meteoroid:1.0.1'
     compile project(':meteor')
 }
