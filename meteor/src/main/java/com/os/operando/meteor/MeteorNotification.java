@@ -31,6 +31,7 @@ public class MeteorNotification {
         String applicationName = context.getApplicationInfo().loadLabel(packageManager).toString();
         NotificationCompat.Builder builder = new NotificationCompat.Builder(context);
         builder.setTicker("Start SlackPost");
+        builder.setOngoing(true);
         builder.setContentTitle(applicationName);
         builder.setContentText("タップすると表示中のスクリーンショットを撮ります");
         builder.setSmallIcon(R.drawable.ic_launcher);
