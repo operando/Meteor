@@ -7,7 +7,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.support.annotation.NonNull;
-import android.util.Log;
 import android.view.Window;
 
 public class MeteorReceiver extends BroadcastReceiver {
@@ -32,7 +31,6 @@ public class MeteorReceiver extends BroadcastReceiver {
 
     @Override
     public void onReceive(Context context, Intent intent) {
-        Log.d(Tag.Meteor, "onReceive");
         Window w = WindowStack.peek();
         if (w == null) {
             // TODO Error callback
