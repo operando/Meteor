@@ -19,10 +19,10 @@ public class MeteorReceiver extends BroadcastReceiver {
     }
 
     public static PendingIntent createPendingIntent(Context context, int requestCode, int flags,
-                                                    @NonNull ComponentName componentName, ComponentType componentType) {
+                                                    @NonNull ComponentName componentName, @Component.Type int component) {
         Intent intent = createIntent(context);
         intent.putExtra(component_name, componentName);
-        intent.putExtra(component_type, componentType);
+        intent.putExtra(component_type, component);
         return PendingIntent.getBroadcast(context, requestCode, intent, flags);
     }
 
@@ -43,14 +43,14 @@ public class MeteorReceiver extends BroadcastReceiver {
         i.putExtra(Meteor.Screenshot_key, uuid);
         i.setComponent(componentName);
         i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        switch (((ComponentType) intent.getSerializableExtra(component_type))) {
-            case Activity:
+        switch (intent.getIntExtra(component_type, Component.NONE)) {
+            case Component.ACTIVITY:
                 context.startActivity(i);
                 break;
-            case Service:
+            case Component.SERVICE:
                 context.startService(i);
                 break;
-            case BroadcastReceiver:
+            case Component.BROADCAST_RECEIVER:
                 context.sendBroadcast(i);
                 break;
         }

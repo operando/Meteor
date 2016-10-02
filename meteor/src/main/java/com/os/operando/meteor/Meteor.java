@@ -10,8 +10,8 @@ public class Meteor {
 
     public static final String Screenshot_key = "screenshot_key";
 
-    public static void init(Application application, ComponentName componentName, ComponentType componentType) {
-        MeteorNotification.show(application, componentName, componentType);
+    public static void init(Application application, ComponentName componentName, @Component.Type int component) {
+        MeteorNotification.show(application, componentName, component);
         application.registerActivityLifecycleCallbacks(new MeteorActivityLifecycleCallbacks());
     }
 
